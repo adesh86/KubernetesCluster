@@ -11,10 +11,12 @@ pool:
 
 steps:
 - task: TerraformInstaller@0
+  displayName: Terraform tool installation
   inputs:
     terraformVersion: 'latest'
 
 - task: TerraformTaskV3@3
+  displayName: Terraform Init
   inputs:
     provider: 'azurerm'
     command: 'init'
@@ -25,12 +27,14 @@ steps:
     backendAzureRmKey: 'terraform.tfstate'
 
 - task: TerraformTaskV3@3
+  displayName: Terraform plan
   inputs:
     provider: 'azurerm'
     command: 'plan'
     environmentServiceNameAzureRM: 'adesh-subscription(de544585-0db3-480d-911c-dd66a43a610d)'
     
 - task: TerraformTaskV3@3
+  displayName: Terraform apply
   inputs:
     provider: 'azurerm'
     command: 'apply'
