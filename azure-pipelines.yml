@@ -20,7 +20,7 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'init'
-    backendServiceArm: 'adesh-subscription(de544585-0db3-480d-911c-dd66a43a610d)'
+    backendServiceArm: 'scazdopipeline'
     backendAzureRmResourceGroupName: 'rg-tfstate'
     backendAzureRmStorageAccountName: 'satfstate1986'
     backendAzureRmContainerName: 'tfstate'
@@ -31,12 +31,12 @@ steps:
   inputs:
     provider: 'azurerm'
     command: 'plan'
-    environmentServiceNameAzureRM: 'adesh-subscription(de544585-0db3-480d-911c-dd66a43a610d)'
+    environmentServiceNameAzureRM: 'scazdopipeline'
     
 - task: TerraformTaskV3@3
   displayName: Terraform apply
   inputs:
     provider: 'azurerm'
     command: 'apply'
-    environmentServiceNameAzureRM: 'adesh-subscription(de544585-0db3-480d-911c-dd66a43a610d)'
+    environmentServiceNameAzureRM: 'scazdopipeline'
     
